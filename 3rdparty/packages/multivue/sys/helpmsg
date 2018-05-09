@@ -1,0 +1,55 @@
+@COCOPR
+Syntax: cocopr [<opts>] {<path> [<opts>]}
+Function: display file in specified format
+          gets defaults from /dd/sys/env.file
+Options :
+     -c           set columns per page
+     -f           use form feed for trailer
+     -h=num       set number of lines after header
+     -l=num       set line length
+     -m=num       set left margin
+     -n=num       set starting line number and incr
+     -o           truncate lines longer than lnlen
+     -p=num       set number of lines per page
+     -t=num       number of lines in trailer
+     -u           do not use title
+     -u=title     use specfied title
+     -x=num       set starting page number
+     -z[=path]    read file names from stdin or <path> if given
+@CONTROL
+Syntax: control [-e]
+Usage : Control Panel to set palettes, mouse and 
+        keyboard parameters and monitor type for
+        Multi-Vue. Selectable from desk utilities
+        menu as the Control Panel.
+Opts  : -e = execute the environment file
+@GCAL
+Syntax: gcal
+Usage : Calendar/Memo book utility for Multi-Vue.
+        Selectable as Calendar from the desk utilities
+        menu.
+@GCALC
+Syntax: gcalc
+Usage : Graphics calculator utility for Multi-Vue.
+        Selectable form desk utilities menu as
+        Calculator.
+@GCLOCK
+Syntax: gclock
+Usage : Alarm clock utility for Multi-Vue.  
+        Selectable from desk utilities menu as
+        Clock.
+@GPORT
+Syntax: gport
+Usage : Serial port configuration utility, allows 
+        setting of baud rates, parity, etc. for the
+        serial devices.  Selectable from the desk 
+        utlities menu as Port Config.
+@GPRINT
+Syntax: gprint
+Usage : Printer setup utility for Multi-Vue.  Lets 
+        user graphically set up the margins for a 
+        printed page.  Selectable as Printer from
+        the desk utilities menu.
+@GSHELL
+Syntax: GShell
+Usage : Graphics Shell for Multi-Vue environment. 

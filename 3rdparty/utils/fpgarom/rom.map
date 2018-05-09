@@ -1,0 +1,5 @@
+Symbol: loop (fpgaboot.rom) = C911
+Symbol: payload (fpgaboot.rom) = C91F
+Symbol: post (fpgaboot.rom) = C91B
+Symbol: pre (fpgaboot.rom) = C908
+Symbol: start (fpgaboot.rom) = C905
