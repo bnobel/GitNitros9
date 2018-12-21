@@ -192,6 +192,13 @@ CFlash60Hz     EQU       30                  * 60Hz flash counter
                NAM       VTIODefs
                TTL       Video Terminal I/O Definitions for CoCo 3
 
+* Max size of Get/Put buffer to copy between user and grfdrv. There is room for up to 128, but
+*   we may use some of that for other things. Leaving at OS-9 Level II default (72) for now.
+* May try increasing to higher (maybe 96?) to see if it makes a noticable difference GPLoading
+* fonts, etc. in EOU bootup.
+
+gb0000         EQU       72                  Size of get/put buffer ($48)
+
 ****************
 * Window Devices
 *
@@ -729,10 +736,14 @@ gr00B7         RMB       2
 gr00B9         RMB       2                   previously used in grfdrv at $B2 but not for Filled Flag
 gr00BB         RMB       2                   previously used in grfdrv at $B4
 gr00BD         RMB       2                   previously used in grfdrv at $B6
-gr00BF         RMB       256-.
-* GPLoad buffer - $1200 in system block 0
-GPBuf          RMB       72                  common move buffer for gpload/get/put
-gb0000         EQU       72                  Size of get/put buffer ($48)
+* EOU Beta 2 & up
+grScrtch       RMB       2                   Scratch var for Grfdrv - use DP instead of stack for
+*                                            anything that does immediate calculations
+gr00BF         RMB       256-.               Reserved for future use
+
+* GPLoad buffer - $1200 in system block    . Currently ends at $1247, and $1248-$127f is unused
+GPBuf          EQU       $1200               Usefull address (start of GP buffer copy memory)
+GPBufSz        RMB       gb0000              common move buffer for gpload/get/put (72 bytes default)
 
 *****************************************************************************
 * Window table entry structure
@@ -877,6 +888,7 @@ MnuHSiz        EQU       .
 
 *****************************************************************************
 * Character binary switches
+Blink          EQU       %10000000           Blink characters (hardware text only)
 TChr           EQU       %10000000           transparent characters
 Under          EQU       %01000000           underline characters
 Bold           EQU       %00100000           bold characters
